@@ -17,6 +17,8 @@ class OnboardingViewController: UIViewController {
     
     var pages: [OnboardingModel] = [] {
         didSet {
+            
+            pageControl.currentPage = pages.count
             collectionView.reloadData()
         }
     }
@@ -50,9 +52,38 @@ class OnboardingViewController: UIViewController {
 
     
     @IBAction func skipButtonClicked(_ sender: UIButton) {
+        start()
     }
     
     @IBAction func nextButtonCllicked(_ sender: UIButton) {
+        
+        
+        if pageControl.currentPage == pageControl.numberOfPages - 1 {
+            start()
+        }else {
+            pageControl.currentPage += 1
+            collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage, section: 0), at: .centeredHorizontally, animated: true)
+            
+//            let x: CGFloat = collectionView.frame.width * CGFloat(pageControl.currentPage)
+//            collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
+            
+            hundlePageChanges()
+        }
+    }
+    
+    func start() {
+        
+    }
+    
+    func hundlePageChanges() {
+        if pageControl.currentPage == pageControl.numberOfPages - 1 {
+            
+            skipButton.isHidden = true
+            nextButton.setTitle("Начать", for: .normal)
+        }else {
+            skipButton.isHidden = false
+            nextButton.setTitle("Дальше", for: .normal)
+        }
     }
     
 }
@@ -77,4 +108,17 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
     }
+}
+
+extension OnboardingViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating at offset x: \(scrollView.contentOffset.x)")
+        
+        pageControl.currentPage = Int( scrollView.contentOffset.x / scrollView.frame.width )
+        hundlePageChanges()
+        
+    }
+    
+    
 }
