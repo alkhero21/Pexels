@@ -64,8 +64,6 @@ class OnboardingViewController: UIViewController {
             pageControl.currentPage += 1
             collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage, section: 0), at: .centeredHorizontally, animated: true)
             
-//            let x: CGFloat = collectionView.frame.width * CGFloat(pageControl.currentPage)
-//            collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
             
             hundlePageChanges()
         }
