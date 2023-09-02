@@ -72,6 +72,7 @@ class OnboardingViewController: UIViewController {
     }
     
     func start() {
+        //function a
         
         UserDefaults.standard.set(true, forKey: OnboardingViewController.KEY)
         
