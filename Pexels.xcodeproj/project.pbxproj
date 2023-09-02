@@ -19,6 +19,8 @@
 		D0D9BB2D2A9F4A34003262DE /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BB2B2A9F4A34003262DE /* OnboardingCollectionViewCell.swift */; };
 		D0D9BB2E2A9F4A34003262DE /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D9BB2C2A9F4A34003262DE /* OnboardingCollectionViewCell.xib */; };
 		D0D9BB302A9F5A27003262DE /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BB2F2A9F5A27003262DE /* OnboardingModel.swift */; };
+		D0F15A7F2AA37A5A000B3E76 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F15A7D2AA37A5A000B3E76 /* MainViewController.swift */; };
+		D0F15A802AA37A5A000B3E76 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F15A7E2AA37A5A000B3E76 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		D0D9BB2B2A9F4A34003262DE /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0D9BB2C2A9F4A34003262DE /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0D9BB2F2A9F5A27003262DE /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		D0F15A7D2AA37A5A000B3E76 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D0F15A7E2AA37A5A000B3E76 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				D0D9BB2B2A9F4A34003262DE /* OnboardingCollectionViewCell.swift */,
 				D0D9BB2C2A9F4A34003262DE /* OnboardingCollectionViewCell.xib */,
 				D017AC132A9F723D00F54397 /* Assets.xcassets */,
+				D0F15A7D2AA37A5A000B3E76 /* MainViewController.swift */,
+				D0F15A7E2AA37A5A000B3E76 /* MainViewController.xib */,
 			);
 			path = Pexels;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 			files = (
 				D02D97D02A9CBCF500529ABE /* LaunchScreen.storyboard in Resources */,
 				D0D9BB2E2A9F4A34003262DE /* OnboardingCollectionViewCell.xib in Resources */,
+				D0F15A802AA37A5A000B3E76 /* MainViewController.xib in Resources */,
 				D017AC142A9F723D00F54397 /* Assets.xcassets in Resources */,
 				D02D97F62A9CC0C800529ABE /* OnboardingViewController.xib in Resources */,
 			);
@@ -271,6 +278,7 @@
 				D02D97C42A9CBCF300529ABE /* AppDelegate.swift in Sources */,
 				D0D9BB302A9F5A27003262DE /* OnboardingModel.swift in Sources */,
 				D02D97F52A9CC0C700529ABE /* OnboardingViewController.swift in Sources */,
+				D0F15A7F2AA37A5A000B3E76 /* MainViewController.swift in Sources */,
 				D02D97C62A9CBCF300529ABE /* SceneDelegate.swift in Sources */,
 				D0D9BB2D2A9F4A34003262DE /* OnboardingCollectionViewCell.swift in Sources */,
 			);

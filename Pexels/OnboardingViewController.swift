@@ -15,6 +15,8 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    static let KEY: String = "UserDidSeeOnboarding"
+    
     var pages: [OnboardingModel] = [] {
         didSet {
             
@@ -71,6 +73,11 @@ class OnboardingViewController: UIViewController {
     
     func start() {
         
+        UserDefaults.standard.set(true, forKey: OnboardingViewController.KEY)
+        
+        let mainVC = MainViewController()
+        view.window?.rootViewController = mainVC
+        view.window?.makeKeyAndVisible()
     }
     
     func hundlePageChanges() {

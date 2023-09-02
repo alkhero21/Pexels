@@ -33,11 +33,12 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkV-As-Q9q">
-                    <rect key="frame" x="-22" y="718" width="147" height="44"/>
+                    <rect key="frame" x="-22" y="718" width="145" height="44"/>
                     <color key="backgroundColor" red="0.27843137254901962" green="0.45098039215686275" blue="0.30196078431372547" alpha="0.7016038705181602" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="9YX-17-CUz"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <inset key="contentEdgeInsets" minX="42" minY="0.0" maxX="20" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Пропустить">
@@ -48,12 +49,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yk-cF-JMI">
-                    <rect key="frame" x="264.5" y="713" width="176.5" height="54"/>
+                    <rect key="frame" x="267" y="713" width="174" height="54"/>
                     <color key="backgroundColor" red="0.27843137254901962" green="0.45098039215686275" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="54" id="FF5-eS-Bmh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                     <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="47" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Дальше">
