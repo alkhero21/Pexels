@@ -23,7 +23,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let userDidSeeOnboarding:Bool = UserDefaults.standard.bool(forKey: OnboardingViewController.KEY)
         
         if userDidSeeOnboarding {
-            window?.rootViewController = MainViewController()
+            
+            let mainVC = MainViewController()
+            let navC = UINavigationController(rootViewController: mainVC)
+            window?.rootViewController = navC
         }else {
             window?.rootViewController = OnboardingViewController()
         }
