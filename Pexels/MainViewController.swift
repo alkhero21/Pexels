@@ -27,6 +27,50 @@ class MainViewController: UIViewController {
     
     func search() {
         
+        guard let searchText = searchBar.text else {
+            print("Search bar text is nil")
+            return
+        }
+        
+        guard !searchText.isEmpty else {
+            print("Search bar text is empty")
+            return
+        }
+        
+        let endpoint: String = "https://api.pexels.com/v1/search"
+        guard var urlComponents = URLComponents(string: endpoint) else {
+            print("Couldn't create URLComponents instance from endpoint - \(endpoint)")
+            return
+        }
+        
+        let parameters = [
+            URLQueryItem(name: "query", value: searchText),
+            URLQueryItem(name: "per_page", value: "10")
+        ]
+        
+        urlComponents.queryItems = parameters
+        
+        guard let url: URL = urlComponents.url else {
+            print("URL is nil")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        
+        let APIKey: String = "1VICU1HooGGM3ZZKEryGCHhpmNN53yeqilpoexinoq54h1oK2qiLcndb"
+        urlRequest.addValue(APIKey, forHTTPHeaderField: "Authorization")
+        
+        let urlSession: URLSession = URLSession(configuration: .default)
+        let dataTask: URLSessionDataTask = urlSession.dataTask(with: urlRequest, completionHandler: searchPhotosHandler(data:urlResponse:error:))
+        
+        dataTask.resume()
+        
+    }
+    
+    func searchPhotosHandler(data: Data?, urlResponse: URLResponse?, error: Error?) {
+        
+        print("Method searchPhotosHandler was called")
     }
 
 }
