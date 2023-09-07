@@ -16,6 +16,9 @@
 		D02D97E72A9CBCF600529ABE /* PexelsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D97E62A9CBCF600529ABE /* PexelsUITestsLaunchTests.swift */; };
 		D02D97F52A9CC0C700529ABE /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D97F32A9CC0C700529ABE /* OnboardingViewController.swift */; };
 		D02D97F62A9CC0C800529ABE /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02D97F42A9CC0C700529ABE /* OnboardingViewController.xib */; };
+		D0D510132AA9AEAC000663AF /* SearchPhotosRespoonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D510122AA9AEAC000663AF /* SearchPhotosRespoonse.swift */; };
+		D0D510162AA9C185000663AF /* PhootoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D510142AA9C185000663AF /* PhootoCollectionViewCell.swift */; };
+		D0D510172AA9C185000663AF /* PhootoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D510152AA9C185000663AF /* PhootoCollectionViewCell.xib */; };
 		D0D9BB2D2A9F4A34003262DE /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BB2B2A9F4A34003262DE /* OnboardingCollectionViewCell.swift */; };
 		D0D9BB2E2A9F4A34003262DE /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D9BB2C2A9F4A34003262DE /* OnboardingCollectionViewCell.xib */; };
 		D0D9BB302A9F5A27003262DE /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BB2F2A9F5A27003262DE /* OnboardingModel.swift */; };
@@ -54,6 +57,9 @@
 		D02D97E62A9CBCF600529ABE /* PexelsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D02D97F32A9CC0C700529ABE /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D02D97F42A9CC0C700529ABE /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		D0D510122AA9AEAC000663AF /* SearchPhotosRespoonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosRespoonse.swift; sourceTree = "<group>"; };
+		D0D510142AA9C185000663AF /* PhootoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhootoCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0D510152AA9C185000663AF /* PhootoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhootoCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0D9BB2B2A9F4A34003262DE /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0D9BB2C2A9F4A34003262DE /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0D9BB2F2A9F5A27003262DE /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
@@ -121,6 +127,9 @@
 				D017AC132A9F723D00F54397 /* Assets.xcassets */,
 				D0F15A7D2AA37A5A000B3E76 /* MainViewController.swift */,
 				D0F15A7E2AA37A5A000B3E76 /* MainViewController.xib */,
+				D0D510122AA9AEAC000663AF /* SearchPhotosRespoonse.swift */,
+				D0D510142AA9C185000663AF /* PhootoCollectionViewCell.swift */,
+				D0D510152AA9C185000663AF /* PhootoCollectionViewCell.xib */,
 			);
 			path = Pexels;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 				D02D97D02A9CBCF500529ABE /* LaunchScreen.storyboard in Resources */,
 				D0D9BB2E2A9F4A34003262DE /* OnboardingCollectionViewCell.xib in Resources */,
 				D0F15A802AA37A5A000B3E76 /* MainViewController.xib in Resources */,
+				D0D510172AA9C185000663AF /* PhootoCollectionViewCell.xib in Resources */,
 				D017AC142A9F723D00F54397 /* Assets.xcassets in Resources */,
 				D02D97F62A9CC0C800529ABE /* OnboardingViewController.xib in Resources */,
 			);
@@ -276,10 +286,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D02D97C42A9CBCF300529ABE /* AppDelegate.swift in Sources */,
+				D0D510162AA9C185000663AF /* PhootoCollectionViewCell.swift in Sources */,
 				D0D9BB302A9F5A27003262DE /* OnboardingModel.swift in Sources */,
 				D02D97F52A9CC0C700529ABE /* OnboardingViewController.swift in Sources */,
 				D0F15A7F2AA37A5A000B3E76 /* MainViewController.swift in Sources */,
 				D02D97C62A9CBCF300529ABE /* SceneDelegate.swift in Sources */,
+				D0D510132AA9AEAC000663AF /* SearchPhotosRespoonse.swift in Sources */,
 				D0D9BB2D2A9F4A34003262DE /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
