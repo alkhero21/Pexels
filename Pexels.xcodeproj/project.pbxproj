@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D015A75A2AAF622E006C953D /* ImageScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015A7582AAF622E006C953D /* ImageScrollViewController.swift */; };
+		D015A75B2AAF622E006C953D /* ImageScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D015A7592AAF622E006C953D /* ImageScrollViewController.xib */; };
 		D017AC142A9F723D00F54397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D017AC132A9F723D00F54397 /* Assets.xcassets */; };
 		D02D97C42A9CBCF300529ABE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D97C32A9CBCF300529ABE /* AppDelegate.swift */; };
 		D02D97C62A9CBCF300529ABE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D97C52A9CBCF300529ABE /* SceneDelegate.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D015A7582AAF622E006C953D /* ImageScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollViewController.swift; sourceTree = "<group>"; };
+		D015A7592AAF622E006C953D /* ImageScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageScrollViewController.xib; sourceTree = "<group>"; };
 		D017AC132A9F723D00F54397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D02D97C02A9CBCF300529ABE /* Pexels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pexels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02D97C32A9CBCF300529ABE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				D0D510122AA9AEAC000663AF /* SearchPhotosRespoonse.swift */,
 				D0D510142AA9C185000663AF /* PhootoCollectionViewCell.swift */,
 				D0D510152AA9C185000663AF /* PhootoCollectionViewCell.xib */,
+				D015A7582AAF622E006C953D /* ImageScrollViewController.swift */,
+				D015A7592AAF622E006C953D /* ImageScrollViewController.xib */,
 			);
 			path = Pexels;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D015A75B2AAF622E006C953D /* ImageScrollViewController.xib in Resources */,
 				D02D97D02A9CBCF500529ABE /* LaunchScreen.storyboard in Resources */,
 				D0D9BB2E2A9F4A34003262DE /* OnboardingCollectionViewCell.xib in Resources */,
 				D0F15A802AA37A5A000B3E76 /* MainViewController.xib in Resources */,
@@ -287,6 +294,7 @@
 			files = (
 				D02D97C42A9CBCF300529ABE /* AppDelegate.swift in Sources */,
 				D0D510162AA9C185000663AF /* PhootoCollectionViewCell.swift in Sources */,
+				D015A75A2AAF622E006C953D /* ImageScrollViewController.swift in Sources */,
 				D0D9BB302A9F5A27003262DE /* OnboardingModel.swift in Sources */,
 				D02D97F52A9CC0C700529ABE /* OnboardingViewController.swift in Sources */,
 				D0F15A7F2AA37A5A000B3E76 /* MainViewController.swift in Sources */,
