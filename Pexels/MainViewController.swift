@@ -25,6 +25,13 @@ class MainViewController: UIViewController {
         return searchPhotosResponse?.photos ?? []
     }
     
+    let savedSearchTextArrayKey: String = "savedSearchTextArrayKey"
+    var searchTextArray: [String] = [] {
+        didSet{
+            searchHistooryCollectionView.reloadData()
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +43,25 @@ class MainViewController: UIViewController {
         
         // Image CollectionView Setup
         imageCollectionView.layer.cornerRadius = 10
-        
         imageCollectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        
         imageCollectionView.register(UINib(nibName: PhootoCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PhootoCollectionViewCell.identifier)
         imageCollectionView.dataSource = self
         
         imageCollectionView.delegate = self
         imageCollectionView.refreshControl = UIRefreshControl()
         imageCollectionView.refreshControl!.addTarget(self, action: #selector(search), for: .valueChanged)
+        
+        
+        // Search History CollectionView Setup
+        
+        let flowLayout = searchHistooryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        flowLayout?.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        
+        searchHistooryCollectionView.register(UINib(nibName: SearchTextCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchTextCollectionViewCell.identifier)
+        searchHistooryCollectionView.dataSource = self
+        searchHistooryCollectionView.delegate = self
+        
+        resetSearchTextArray()
         
         
     }
@@ -61,6 +78,11 @@ class MainViewController: UIViewController {
             print("Search bar text is empty")
             return
         }
+        
+        
+        // Save Searchign Text
+        
+        save(searchText: searchText)
         
         let endpoint: String = "https://api.pexels.com/v1/search"
         guard var urlComponents = URLComponents(string: endpoint) else {
@@ -131,6 +153,51 @@ class MainViewController: UIViewController {
             print("Search Photos enpoint http response url status - \(httpResponse.statusCode)")
         }
     }
+    
+    func save(searchText: String) {
+        var existingArray: [String] = getSaveSearchTextArray()
+        existingArray.append(searchText)
+        
+        UserDefaults.standard.set(existingArray, forKey: savedSearchTextArrayKey)
+        
+        resetSearchTextArray()
+    }
+    
+    func getSaveSearchTextArray() -> [String] {
+        
+        let array: [String] = UserDefaults.standard.stringArray(forKey: savedSearchTextArrayKey) ?? []
+        return array
+    }
+    
+    func getSortedSearchTextArray() -> [String] {
+        let savedSearchTextArray: [String] = getSaveSearchTextArray()
+        let reversedSaveSearchTextArray: [String] = savedSearchTextArray.reversed()
+        return reversedSaveSearchTextArray
+    }
+    
+    func resetSearchTextArray() {
+        self.searchTextArray = getUniqueSearchTextArray()
+    }
+    
+    func getUniqueSearchTextArray() -> [String] {
+        
+        let sortedSearchTextArray : [String] = getSortedSearchTextArray()
+        
+        var sortedSearchTextArrayWithUniqueValues: [String] = []
+        
+        sortedSearchTextArray.forEach { searchText in
+            
+            if !sortedSearchTextArrayWithUniqueValues.contains(searchText){
+                sortedSearchTextArrayWithUniqueValues.append(searchText)
+            }
+        }
+        return sortedSearchTextArrayWithUniqueValues
+    }
+    
+    func deleteContact(at index: Int) {
+        searchTextArray.remove(at: index)
+        UserDefaults.standard.set(searchTextArray, forKey: savedSearchTextArrayKey)
+    }
 
 }
 
@@ -164,14 +231,45 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        
+        switch collectionView {
+        case imageCollectionView:
+            return photos.count
+            
+        case searchHistooryCollectionView:
+            return searchTextArray.count
+            
+        default:
+            return 0
+        }
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhootoCollectionViewCell.identifier, for: indexPath) as! PhootoCollectionViewCell
-        cell.setup(photo: self.photos[indexPath.item])
-        return cell
+        
+        switch collectionView{
+            
+        case imageCollectionView:
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhootoCollectionViewCell.identifier, for: indexPath) as! PhootoCollectionViewCell
+            cell.setup(photo: self.photos[indexPath.item])
+            return cell
+            
+        case searchHistooryCollectionView:
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchTextCollectionViewCell.identifier, for: indexPath) as! SearchTextCollectionViewCell
+            let title = searchTextArray[indexPath.item]
+            cell.set(title: title)
+            cell.deleteButtonWasTapped = {
+                self.deleteContact(at: indexPath.item)
+            }
+            return cell
+            
+        default:
+            return UICollectionViewCell()
+        }
     }
 }
 
@@ -179,6 +277,7 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let flowLayout: UICollectionViewFlowLayout? = collectionViewLayout as? UICollectionViewFlowLayout
         let horizontalSpacing: CGFloat = ( flowLayout?.minimumInteritemSpacing ?? 0 ) + collectionView.contentInset.left + collectionView.contentInset.right
         let width: CGFloat = ( collectionView.frame.width - horizontalSpacing ) / 2
@@ -188,10 +287,29 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photo = self.photos[indexPath.item]
-        let url = photo.src.large2X
         
-        let vc = ImageScrollViewController(imageURL: url)
-        self.navigationController?.pushViewController(vc, animated: true)
+        switch collectionView {
+            
+        case imageCollectionView:
+            
+            let photo = self.photos[indexPath.item]
+            let url = photo.src.large2X
+            
+            let vc = ImageScrollViewController(imageURL: url)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        case searchHistooryCollectionView:
+            
+            let searchText: String = searchTextArray[indexPath.item]
+            searchBar.text = searchText
+            search()
+            
+        default:
+            ()
+            
+        }
+    
     }
 }
+
+
